@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BaseStartingApp.Views.RegisterPage">
+    <ContentPage.Content>
+        <StackLayout x:Name="layout">
+            <Label Text="Rejestracja:" HorizontalOptions="Center" 
+                TextColor="Black" FontSize="Large"/>
+            <Label Text="Username: " HorizontalOptions="Start" 
+                TextColor="Black" FontSize="Medium" />
+            <Entry HorizontalOptions="FillAndExpand" Unfocused="usernameEntry_Unfocused"
+                TextColor="Black" x:Name="usernameEntry" />
+            <Label HorizontalOptions="Center" x:Name="usernameErrorLabel"
+                TextColor="IndianRed" FontSize="Small"/>
+            <Label Text="Password: " HorizontalOptions="Start" 
+                TextColor="Black" FontSize="Medium" />
+            <Entry HorizontalOptions="FillAndExpand" Unfocused="passwordEntry_Unfocused"
+                TextColor="Black" x:Name="passwordEntry" IsPassword="True" />
+            <Label HorizontalOptions="Center" x:Name="passwordErrorLabel"
+                TextColor="IndianRed" FontSize="Small"/>
+            <Label Text="Confirm password: " HorizontalOptions="Start"
+                TextColor="Black" FontSize="Medium" />
+            <Entry HorizontalOptions="FillAndExpand" Unfocused="confirmPasswordEntry_Unfocused"
+                TextColor="Black" x:Name="confirmPasswordEntry" IsPassword="True" />
+            <Label HorizontalOptions="Center" x:Name="confirmPasswordErrorLabel"
+                TextColor="IndianRed" FontSize="Small"/>
+            <Button Text="Zajerestruj" Clicked="Button_Clicked"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
