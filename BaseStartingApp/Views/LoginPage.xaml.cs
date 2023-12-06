@@ -32,7 +32,7 @@ namespace BaseStartingApp.Views
             };
 
             gridlog.Children.Add(myButton,0,3);
-            Button myButton2 = new Button
+         /*   Button myButton2 = new Button
             {
                 Text = "Wróć na stronę główną",
                 Padding = 5,
@@ -43,9 +43,9 @@ namespace BaseStartingApp.Views
                 //CommandParameter = new NavigationData { location = "MainPage" }
                
             };
-
+         
             gridlog.Children.Add(myButton2, 0, 4);
-
+         */
             //Button myButton3 = new Button
             //{
             //    Text = "editpage",
