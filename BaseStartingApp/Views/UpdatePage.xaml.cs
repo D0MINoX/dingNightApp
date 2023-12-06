@@ -114,5 +114,12 @@ namespace BaseStartingApp.Views
             }*/
 
         }
+
+        private void Button_Clicked_1(object sender, EventArgs e)
+        {
+            App.LoggedUser = null;
+            Navigation.PopAsync();
+            DisplayAlert("Wylogowano", "zostałeś wylogowany ze swojego konta", "OK");
+        }
     }
 }

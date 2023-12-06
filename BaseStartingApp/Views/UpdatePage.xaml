@@ -7,12 +7,13 @@
     <ContentPage.Content>
         <ScrollView>
             <StackLayout>
+                <Button Style="{StaticResource buttonrej}" Margin="3,10,3,0" Text="WYLOGUJ" Clicked="Button_Clicked_1"/>
                 <Grid x:Name="layout">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="0.2*"></RowDefinition>
                         <RowDefinition></RowDefinition>
                     </Grid.RowDefinitions>
-                    <Label Grid.Row="0" Text="Cześć!" FontSize="34" TextColor="White" VerticalOptions="End" FontAttributes="Bold" Padding="20,0,0,20"/>
+                    <Label Grid.Row="0" Text="Cześć" FontSize="34" TextColor="White" VerticalOptions="End" FontAttributes="Bold" Padding="20,0,0,20"/>
                     <Frame Grid.Row="1" HasShadow="False" Margin="15,0,15,50" VerticalOptions="FillAndExpand" CornerRadius="20" Opacity="0.9" BackgroundColor="#2e2b2c">
                         <Grid x:Name="gridrej" RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto" RowSpacing="20" Padding="0,10,0,0">
                             <StackLayout Grid.Row="0">

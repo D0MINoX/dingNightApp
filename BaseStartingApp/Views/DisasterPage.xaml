@@ -7,7 +7,7 @@
         <Grid 
             >
             <Frame Grid.Row="0" HasShadow="False" Margin="15,30,15,40" VerticalOptions="FillAndExpand" CornerRadius="20" Opacity="0.9" BackgroundColor="#2e2b2c">
-                <Grid x:Name="gridlog" RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto" RowSpacing="20" >
+                <Grid x:Name="gridlog" RowDefinitions="*,*,*,*,*,*,*,*,*,*,*,*" RowSpacing="10" >
                     <Label Style="{StaticResource labelik}"  TextColor="{StaticResource CustomTextColor}" Text="Tytuł:" Grid.Row="0"/>
                     <Label Style="{StaticResource labelik}" x:Name="title" Grid.Row="1"/>
                     <Label Style="{StaticResource labelik}" x:Name="id" IsVisible="false" />

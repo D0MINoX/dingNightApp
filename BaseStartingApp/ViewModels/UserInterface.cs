@@ -233,7 +233,8 @@ namespace BaseStartingApp.ViewModels
                     if (user.password == hashedPassword)
                     {
                         //zalogowanie na konto użytkownika i przekierowanie do strony blogu
-                        await App.Current.MainPage.DisplayAlert("Powiadomienie", "Pomyślnie zalogowano", "Przejdź do blogu");
+                        await App.Current.MainPage.DisplayAlert("Powiadomienie", "Pomyślnie zalogowano", "OK");
+                        
                         App.LoggedUser = user;
                         return true;
                         //AppNavigation.NavigateTo(new NavigationData { location = "MainPage" });

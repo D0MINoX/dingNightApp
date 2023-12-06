@@ -26,7 +26,7 @@ namespace BaseStartingApp
 
             foreach (Donation donation in donation_list)
             {
-                donation_colection.Add(donation);
+                if(donation.ColectedMoney<=donation.NeededMoney) donation_colection.Add(donation);
 
             }
             lista.IsRefreshing = false;
