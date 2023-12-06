@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BaseStartingApp.DisasterPage"
+             Background="black">
+    <ContentPage.Content>
+        <Grid 
+            >
+            <Frame Grid.Row="0" HasShadow="False" Margin="15,30,15,40" VerticalOptions="FillAndExpand" CornerRadius="20" Opacity="0.9" BackgroundColor="#2e2b2c">
+                <Grid x:Name="gridlog" RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto" RowSpacing="20" >
+                    <Label Style="{StaticResource labelik}"  TextColor="{StaticResource CustomTextColor}" Text="Tytuł:" Grid.Row="0"/>
+                    <Label Style="{StaticResource labelik}" x:Name="title" Grid.Row="1"/>
+                    <Label Style="{StaticResource labelik}" x:Name="id" IsVisible="false" />
+                    <Label Style="{StaticResource labelik}"  TextColor="{StaticResource CustomTextColor}" Text="Opis:" Grid.Row="2" />
+                    <Label Style="{StaticResource labelik}" x:Name="description" Grid.Row="3"  />
+                    <Label Style="{StaticResource labelik}"  TextColor="{StaticResource CustomTextColor}" Text="Lokalizacja:" Grid.Row="4"/>
+                    <Label Style="{StaticResource labelik}" x:Name="location" Grid.Row="5"/>
+                    <Label Style="{StaticResource labelik}"  TextColor="{StaticResource CustomTextColor}" Text="Aktualna liczba wolontariuszy:" Grid.Row="6"/>
+                    <Label Style="{StaticResource labelik}" x:Name="volunteers_number" Grid.Row="7"  />
+                    <Label Style="{StaticResource labelik}"  TextColor="{StaticResource CustomTextColor}" Text="Liczba potrzebnych wolontariuszy:" Grid.Row="8"/>
+                    <Label Style="{StaticResource labelik}" x:Name="volunteers_number_needed" Grid.Row="9"  />
+                    <Label Style="{StaticResource labelik}"  TextColor="{StaticResource CustomTextColor}" Text="Dodane przez:" Grid.Row="10"/>
+                    <Label Style="{StaticResource labelik}" x:Name="user" Grid.Row="11"/>
+                    <Button Style="{StaticResource buttonrej}" Text="ZGŁOŚ SIĘ" VerticalOptions="End" Clicked="Button_Clicked" Grid.Row="12"/>
+                    <Button Style="{StaticResource buttonrej}" x:Name="delete" Text="Usuń" IsVisible="false" VerticalOptions="Center" Clicked="delete_Clicked" Grid.Row="13"/>
+                </Grid>
+            </Frame>
+        </Grid>
+        
+    </ContentPage.Content>
+</ContentPage>

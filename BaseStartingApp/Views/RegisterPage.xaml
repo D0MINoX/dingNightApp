@@ -1,9 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="BaseStartingApp.Views.RegisterPage">
+             x:Class="BaseStartingApp.Views.RegisterPage"
+              xmlns:effects="clr-namespace:BaseStartingApp.Effects"
+             Background="black">
     <ContentPage.Content>
-        <StackLayout x:Name="layout">
+        <!--<StackLayout x:Name="layout">
             <Label Text="Rejestracja:" HorizontalOptions="Center" 
                 TextColor="Black" FontSize="Large"/>
             <Label Text="Username: " HorizontalOptions="Start" 
@@ -25,6 +27,96 @@
             <Label HorizontalOptions="Center" x:Name="confirmPasswordErrorLabel"
                 TextColor="IndianRed" FontSize="Small"/>
             <Button Text="Zajerestruj" Clicked="Button_Clicked"/>
-        </StackLayout>
+        </StackLayout>-->
+        <ScrollView>
+            <StackLayout>
+        <Grid x:Name="layout">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.2*"></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Label Grid.Row="0" Text="Cześć!" FontSize="34" TextColor="White" VerticalOptions="End" FontAttributes="Bold" Padding="20,0,0,20"/>
+            <Frame Grid.Row="1" HasShadow="False" Margin="15,0,15,50" VerticalOptions="FillAndExpand" CornerRadius="20" Opacity="0.9" BackgroundColor="#2e2b2c">
+                <Grid x:Name="gridrej" RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto" RowSpacing="20" Padding="0,10,0,0">
+                    <StackLayout Grid.Row="0">
+                        <Frame Style="{StaticResource framestyle}">
+                            <Entry x:Name="emailEntry" Unfocused="emailEntry_Unfocused" Style="{StaticResource entrystyle}" Placeholder="Email" >
+                                <Entry.Effects>
+                                    <effects:PlainEntry/>
+                                </Entry.Effects>
+                            </Entry>
+                        </Frame>
+                        <Label HorizontalOptions="Center" x:Name="emailErrorLabel"
+TextColor="IndianRed" FontSize="Small"/>
+                    </StackLayout>
+
+                    <StackLayout Grid.Row="1">
+                        <Frame Style="{StaticResource framestyle}">
+                            <Entry Style="{StaticResource entrystyle}" Placeholder="Hasło" IsPassword="True"  x:Name="passwordEntry"  Unfocused="passwordEntry_Unfocused">
+                                <Entry.Effects>
+                                    <effects:PlainEntry/>
+                                </Entry.Effects>
+                            </Entry>
+                        </Frame>
+                        <Label HorizontalOptions="Center" x:Name="passwordErrorLabel"
+TextColor="IndianRed" FontSize="Small"/>
+                    </StackLayout>
+
+                    <StackLayout Grid.Row="2">
+                        <Frame Style="{StaticResource framestyle}">
+                            <Entry Style="{StaticResource entrystyle}" Placeholder="Potwierdź hasło" IsPassword="True"  Unfocused="confirmPasswordEntry_Unfocused" x:Name="confirmPasswordEntry" >
+                                <Entry.Effects>
+                                    <effects:PlainEntry/>
+                                </Entry.Effects>
+                            </Entry>
+                        </Frame>
+                        <Label HorizontalOptions="Center" x:Name="confirmPasswordErrorLabel"
+TextColor="IndianRed" FontSize="Small"/>
+                    </StackLayout>
+
+                    <StackLayout Grid.Row="3">
+                        <Frame Style="{StaticResource framestyle}">
+                            <Entry x:Name="nameEntry" Style="{StaticResource entrystyle}" Placeholder="Imię" Unfocused="nameEntry_Unfocused" >
+                                <Entry.Effects>
+                                    <effects:PlainEntry/>
+                                </Entry.Effects>
+                            </Entry>
+                        </Frame>
+                        <Label HorizontalOptions="Center" x:Name="nameErrorLabel"
+TextColor="IndianRed" FontSize="Small"/>
+                    </StackLayout>
+
+                    <StackLayout Grid.Row="4">
+                        <Frame Style="{StaticResource framestyle}">
+                            <Entry x:Name="surnameEntry" Style="{StaticResource entrystyle}" Placeholder="Nazwisko" Unfocused="surnameEntry_Unfocused">
+                                <Entry.Effects>
+                                    <effects:PlainEntry/>
+                                </Entry.Effects>
+                            </Entry>
+                        </Frame>
+                        <Label HorizontalOptions="Center" x:Name="surnameErrorLabel"
+TextColor="IndianRed" FontSize="Small"/>
+                    </StackLayout>
+
+                    <StackLayout Grid.Row="5">
+                        <Frame Style="{StaticResource framestyle}">
+                            <Entry x:Name="phoneEntry" Style="{StaticResource entrystyle}" Placeholder="Nr Telefonu" Unfocused="phoneEntry_Unfocused">
+                                <Entry.Effects>
+                                    <effects:PlainEntry/>
+                                </Entry.Effects>
+                            </Entry>
+                        </Frame>
+                        <Label HorizontalOptions="Center" x:Name="phoneErrorLabel"
+TextColor="IndianRed" FontSize="Small"/>
+                    </StackLayout>
+                    
+                    <Button Grid.Row="6" Text="Zarejestruj się" Style="{StaticResource buttonrej}" Clicked="Button_Clicked"></Button>
+
+                </Grid>
+            </Frame>
+        </Grid>
+            
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

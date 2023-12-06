@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BaseStartingApp.CreateDonationPage" xmlns:effects="clr-namespace:BaseStartingApp.Effects"
+             BackgroundColor="Black">
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition Height="0.2*"></RowDefinition>
+                <RowDefinition Height="0.2*"></RowDefinition>
+
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Frame Grid.Row="0" HasShadow="False" Grid.ColumnSpan="4" Margin="15,15,15,110" VerticalOptions="FillAndExpand" CornerRadius="20" Opacity="0.9" BackgroundColor="#2e2b2c">
+                <Grid RowDefinitions="auto,auto,auto"  RowSpacing="20" Padding="0,30,0,0">
+                    <Frame Style="{StaticResource framestyle}" Grid.Row="0">
+                        <Entry x:Name="name" Style="{StaticResource entrystyle}"  Placeholder="Nazwa">
+                            <Entry.Effects>
+                                <effects:PlainEntry/>
+                            </Entry.Effects>
+                        </Entry>
+                    </Frame>
+                    <Frame Style="{StaticResource framestyle}" Grid.Row="1">
+                        <Entry x:Name="description" Style="{StaticResource entrystyle}" Placeholder="Opis">
+                            <Entry.Effects>
+                                <effects:PlainEntry/>
+                            </Entry.Effects>
+                        </Entry>
+
+                    </Frame>
+                    <Frame Style="{StaticResource framestyle}" Grid.Row="2">
+                        <Entry x:Name="neededmoney" Style="{StaticResource entrystyle}" Placeholder="Ilość potrzebnych pieniędzy">
+                            <Entry.Effects>
+                                <effects:PlainEntry/>
+                            </Entry.Effects>
+                        </Entry>
+                    </Frame>
+                </Grid>
+            </Frame>
+            <Button Text="Dodaj" Grid.Row="1" Style="{StaticResource buttonrej}" Padding="20" Grid.ColumnSpan="4" Clicked="Button_Clicked"/>
+
+            <ImageButton Padding="20" Grid.Row="2" BackgroundColor="Transparent" Source="map2.png"
+             HorizontalOptions="Center"
+             VerticalOptions="CenterAndExpand" Clicked="buttonMapa" />
+            <ImageButton Padding="20" Grid.Row="2" Grid.Column="1" BackgroundColor="Transparent" Source="calendar2.png"
+       HorizontalOptions="Center"
+       VerticalOptions="CenterAndExpand" Clicked="buttonzdarzenia" />
+            <ImageButton Padding="20" Grid.Row="2" Grid.Column="2" BackgroundColor="Transparent" Source="money2.png"
+       HorizontalOptions="Center"
+       VerticalOptions="CenterAndExpand" Clicked="buttonDonation" />
+
+            <ImageButton Padding="20" Grid.Row="2" Grid.Column="3" BackgroundColor="Transparent" Source="user2.png"
+       HorizontalOptions="Center"
+       VerticalOptions="CenterAndExpand" Clicked="buttonlogin" />
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

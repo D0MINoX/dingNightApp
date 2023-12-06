@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BaseStartingApp.AllDisastersPage"
+             Background="black">
+    <ContentPage.Content>
+
+        <Grid x:Name="layout">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.1*"></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition Height="0.2*"></RowDefinition>
+                <RowDefinition Height="0.2*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            
+            <ListView Grid.Row="1" Grid.ColumnSpan="4"  x:Name="lista" IsPullToRefreshEnabled="True" Refreshing="lista_Refreshing">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell Height="40">
+                            <ScrollView Orientation="Horizontal">
+                                <StackLayout VerticalOptions="FillAndExpand" HeightRequest="120">
+                                <StackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" NumberOfTapsRequired="1"/>
+                                </StackLayout.GestureRecognizers>
+                                <!--<Grid Padding="30,0,0,0" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition></RowDefinition>
+                                        <RowDefinition></RowDefinition>
+                                    </Grid.RowDefinitions>-->
+                                    <Label  Text="{Binding Id}" IsVisible="false"/>
+                                    <Label FontSize="20">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span Text="{Binding Name}" TextColor="{StaticResource CustomTextColor}"/>
+                                                <Span Text=" nadane przez: " TextColor="{StaticResource CustomTextColor}"/>
+                                                <Span Text="{Binding user}" TextColor="White"/>
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+                                    <!--<Label  Text="{Binding Id}" IsVisible="false"/>
+                                    <Label FontSize="20" TextColor="{StaticResource CustomTextColor}" Text="{ Binding Name }"/>
+                                    <Label FontSize="20" TextColor="White" Text="{ Binding user}"/>-->
+                                </StackLayout>
+                            </ScrollView>
+                            
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Button Style="{StaticResource buttonrej}" Grid.Row="2" Grid.ColumnSpan="4" x:Name="button" Text="Dodaj" IsVisible="false" Clicked="button_Clicked_1"/>
+
+            <ImageButton Padding="30" Grid.Row="3" BackgroundColor="Transparent" Source="map2.png"
+              HorizontalOptions="Center"
+              VerticalOptions="CenterAndExpand" Clicked="buttonMapa" />
+            <ImageButton Padding="30" Grid.Row="3" Grid.Column="1" BackgroundColor="Transparent" Source="calendar2.png"
+        HorizontalOptions="Center"
+        VerticalOptions="CenterAndExpand" Clicked="buttonzdarzenia" />
+
+            <ImageButton Padding="30" Grid.Row="3" Grid.Column="2" BackgroundColor="Transparent" Source="money2.png"
+        HorizontalOptions="Center"
+        VerticalOptions="CenterAndExpand" Clicked="buttonDonation"  />
+
+            <ImageButton Padding="30" Grid.Row="3" Grid.Column="3" BackgroundColor="Transparent" Source="user2.png"
+HorizontalOptions="Center"
+VerticalOptions="CenterAndExpand" Clicked="buttonlogin" />
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

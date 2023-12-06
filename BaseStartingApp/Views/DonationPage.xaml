@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BaseStartingApp.DonationPage" Background="Black">
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition Height="0.2*"></RowDefinition>
+
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <Label x:Name="title" Grid.ColumnSpan="4" Style="{StaticResource labelik}" HorizontalTextAlignment="Center"/>
+            <Label x:Name="id" IsVisible="false" />
+            <Label x:Name="description" Grid.ColumnSpan="4" Grid.Row="1" Style="{StaticResource labelik}" HorizontalTextAlignment="Center"/>
+            <Label x:Name="colectedmoney" Grid.ColumnSpan="4" Grid.Row="2" Style="{StaticResource labelik}"  Text="Ilość zebranych pieniędzy: " HorizontalTextAlignment="Center"/>
+            <Label x:Name="neededmoney" Grid.ColumnSpan="4" Grid.Row="3" Style="{StaticResource labelik}" Text="Ilość potrzebnych pieniędzy: " HorizontalTextAlignment="Center"/>
+            <Label Text="Zebrane pieniądze" Grid.ColumnSpan="4" Grid.Row="4" Style="{StaticResource labelik}" HorizontalTextAlignment="Center"/>
+            <ProgressBar x:Name="progress" Grid.ColumnSpan="4"  Grid.Row="5" BackgroundColor="#101010" ProgressColor="LimeGreen" Margin="10,0,10,0" ScaleY="5"/>
+            <Button Text="WESPRZYJ" VerticalOptions="End" Grid.ColumnSpan="4" Style="{StaticResource buttonrej}" Clicked="Button_Clicked" Grid.Row="6"/>
+
+
+            <ImageButton Padding="30" Grid.Row="7" BackgroundColor="Transparent" Source="map2.png"
+                HorizontalOptions="Center"
+                VerticalOptions="CenterAndExpand" Clicked="buttonMapa"/>
+            <ImageButton Padding="30" Grid.Row="7" Grid.Column="1" BackgroundColor="Transparent" Source="calendar2.png"
+          HorizontalOptions="Center"
+          VerticalOptions="CenterAndExpand" Clicked="buttonzdarzenia"/>
+            <ImageButton Padding="30" Grid.Row="7" Grid.Column="2" BackgroundColor="Transparent" Source="money2.png"
+          HorizontalOptions="Center"
+          VerticalOptions="CenterAndExpand" Clicked="buttonDonation"/>
+
+            <ImageButton Padding="30" Grid.Row="7" Grid.Column="3" BackgroundColor="Transparent" Source="user2.png"
+          HorizontalOptions="Center"
+          VerticalOptions="CenterAndExpand"  Clicked="buttonlogin"/>
+
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,9 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="BaseStartingApp.MainPage">
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
+             x:Class="BaseStartingApp.MainPage"
+             >
 
-    <StackLayout>
+    <!--<StackLayout>
         <Label Text="Zarejestruj się" Margin="20" FontSize="Medium" HorizontalTextAlignment="Center">
             <Label.GestureRecognizers>
                 <TapGestureRecognizer Tapped="TapGestureRecognizer_TappedRegister"/>
@@ -14,6 +15,38 @@
                 <TapGestureRecognizer Tapped="TapGestureRecognizer_TappedLogin"/>
             </Label.GestureRecognizers>
         </Label>
-    </StackLayout>
+    </StackLayout>-->
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1.2*"></RowDefinition>
+            <RowDefinition Height="0.1*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+          
+        </Grid.ColumnDefinitions>
+        <maps:Map x:Name="myMap" IsShowingUser="True" Grid.ColumnSpan="4" />
+        <Button Clicked="Buttond_Clicked" x:Name="button" IsVisible="false" VerticalOptions="End" Text="DODAJ"></Button>
+
+
+        <ImageButton Padding="5" Grid.Row="1" BackgroundColor="Transparent" Source="map.png"
+                    HorizontalOptions="Center"
+                    VerticalOptions="CenterAndExpand" />
+        <ImageButton Padding="5" Grid.Row="1" Grid.Column="1" BackgroundColor="Transparent" Source="calendar.png"
+              HorizontalOptions="Center"
+              VerticalOptions="CenterAndExpand" Clicked="buttonzdarzenia"/>
+
+        <ImageButton Padding="5" Grid.Row="1" Grid.Column="2" BackgroundColor="Transparent" Source="money.png"
+              HorizontalOptions="Center"
+              VerticalOptions="CenterAndExpand" Clicked="buttonDonation" />
+        <ImageButton Padding="5" Grid.Row="1" Grid.Column="3" BackgroundColor="Transparent" Source="user.png"
+              HorizontalOptions="Center"
+              VerticalOptions="CenterAndExpand" Clicked="buttonlogin" />
+
+
+    </Grid>
 
 </ContentPage>

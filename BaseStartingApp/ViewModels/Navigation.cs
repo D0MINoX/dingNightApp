@@ -20,7 +20,8 @@ namespace BaseStartingApp.ViewModels
             {
                 //nazwa naszego projektu
                 string projectName = Assembly.GetExecutingAssembly().GetName().Name;
-                string viewName = data.location.Contains("/") ? data.location.Substring(0, data.location.IndexOf('/')) : data.location;
+                //string viewName = data.location.Contains("/") ? data.location.Substring(0, data.location.IndexOf('/')) : data.location;
+                string viewName = data.location;
                 Console.WriteLine("\n\n" + $"{projectName}.Views.{viewName}" + "\n\n");
                 //pobranie typu widoku, do którego chcemy się przenieść
                 Type type = Type.GetType($"{projectName}.Views.{viewName}");
@@ -31,10 +32,11 @@ namespace BaseStartingApp.ViewModels
                 //if(viewName != data.location)
                 //    App.Current.MainPage = (Page)Activator.CreateInstance(type, data.location.Substring(data.location.IndexOf('/')+1));
                 
-                if (list.Contains(data.location))
+                /*if (list.Contains(data.location))
                     App.Current.MainPage = (Page)Activator.CreateInstance(type, data.loggedUser);
-                else
-                    App.Current.MainPage = (Page)Activator.CreateInstance(type);
+                else*/
+                App.Current.MainPage = new NavigationPage((Page)Activator.CreateInstance(type));
+                //App.Current.MainPage = Navigation.PushAsync(new MainPage());
             }
                 
         }

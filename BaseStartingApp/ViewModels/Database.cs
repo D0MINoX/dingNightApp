@@ -6,45 +6,67 @@ using System.Text;
 using BaseStartingApp.Models;
 using System.Threading.Tasks;
 using System.Security.Cryptography;
+using System.Net.Http;
+using Xamarin.Essentials;
+using static System.Net.Mime.MediaTypeNames;
+using Newtonsoft.Json;
 
 namespace BaseStartingApp.ViewModels
 {
     public class Database
     {
-        private readonly SQLiteAsyncConnection _database;
-        public Database(string dbPath)
+        private static HttpClient client = new HttpClient();
+        public static bool ConnectionCheck()
         {
-            //nazwiązanie połączenia z bazą danych
-            _database = new SQLiteAsyncConnection(dbPath);
+            if (Connectivity.NetworkAccess == NetworkAccess.Internet)
+                return true;
+            else
+                return false;
         }
 
-        //Inicjalizacja bazy danych tabelami i podstawowymi rekordami
-        public async Task InitializeAsync()
+        public static async Task<List<Disaster>> GetDisastersAsync()
         {
-            //await _database.DropTableAsync<Users>();
-            await _database.CreateTableAsync<Users>();
+            string disasters_data = await client.GetStringAsync("https://unpurged-knives.000webhostapp.com/ShowDisaster.php");
+            List<Disaster> disasters_list = JsonConvert.DeserializeObject<List<Disaster>>(disasters_data);
 
-            var users = await App.Database.GetUsersAsync();
-            Users user = users.Find(x => x.Username == "Admin");
+            return disasters_list;
+        }
 
-            if(user == null)
-            {
-                string hashedPassword = Convert.ToBase64String(SHA256.Create().ComputeHash(Encoding.UTF8.GetBytes("123")));
-                await _database.InsertAsync(new Users() { Username = "Admin", Password = hashedPassword });
+        public static async Task<List<Users>> GetUsersAsync()
+        {
+            Dictionary<string, string> dict = new Dictionary<string, string>() { { "table", "users" } };
+            HttpResponseMessage response = await client.PostAsync("https://unpurged-knives.000webhostapp.com/test.php", new FormUrlEncodedContent(dict));
+            string json = await response.Content.ReadAsStringAsync();
+            List<Users> users = JsonConvert.DeserializeObject<List<Users>>(json);
+
+            return users;
+        }
+
+        public static async Task SaveUserAsync(Users user)
+        {
+            
+            Dictionary<string, string> dict = new Dictionary<string, string>();
+            foreach (var prop in user.GetType().GetProperties()) { 
+                dict.Add(prop.Name, prop.GetValue(user).ToString());
+            Console.WriteLine($"{prop.Name} {prop.GetValue(user).ToString()}");
             }
 
+            HttpResponseMessage response = await client.PostAsync("https://unpurged-knives.000webhostapp.com/test.php", new FormUrlEncodedContent(dict));
         }
 
-        public Task<List<Users>> GetUsersAsync()
+        public static async Task UpdateUserAsync(Users user)
         {
-            //Zwraca wszystkich użytkowników w formie listy
-            return _database.Table<Users>().ToListAsync();
-        }
 
-        public Task<int> SaveUserAsync(Users user)
-        {
-            //Dodanie nowego użytkownika do tabeli
-            return _database.InsertAsync(user);
+            Dictionary<string, string> dict = new Dictionary<string, string>();
+            foreach (var prop in user.GetType().GetProperties())
+            {
+                dict.Add(prop.Name, prop.GetValue(user).ToString());
+                Console.WriteLine($"{prop.Name} {prop.GetValue(user).ToString()}");
+            }
+
+            HttpResponseMessage response = await client.PostAsync("https://unpurged-knives.000webhostapp.com/UpdateUser.php", new FormUrlEncodedContent(dict));
+            string json = await response.Content.ReadAsStringAsync();
+            Console.WriteLine(json);
         }
 
     }

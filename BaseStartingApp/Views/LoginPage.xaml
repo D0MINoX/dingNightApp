@@ -1,9 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="BaseStartingApp.Views.LoginPage">
+             x:Class="BaseStartingApp.Views.LoginPage"
+             xmlns:effects="clr-namespace:BaseStartingApp.Effects"
+             BackgroundColor="Black"
+             >
     <ContentPage.Content>
-        <StackLayout x:Name="layout">
+        <ScrollView>
+        <!--<StackLayout x:Name="layout">
             <Label Text="Logowanie:" HorizontalOptions="Center" 
            TextColor="Black" FontSize="Large"/>
             <Label Text="Username: " HorizontalOptions="Start" 
@@ -15,6 +19,49 @@
             <Entry HorizontalOptions="FillAndExpand" 
             TextColor="Black" x:Name="passwordEntry" IsPassword="True" />
             <Button Text="Zaloguj" Clicked="Button_Clicked"/>
-        </StackLayout>
+        </StackLayout>-->
+        <Grid >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.4*"></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Label Grid.Row="0" Text="Cześć!" FontSize="34" TextColor="White" VerticalOptions="End" FontAttributes="Bold" Padding="20,0,0,20"/>
+            <Frame Grid.Row="1" HasShadow="False" Margin="15,0,15,110" VerticalOptions="FillAndExpand" CornerRadius="20" Opacity="0.9" BackgroundColor="#2e2b2c">
+                <Grid x:Name="gridlog" RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto" RowSpacing="20" Padding="0,30,0,0">
+                    <StackLayout Grid.Row="0">
+                        <Frame Style="{StaticResource framestyle}">
+                            <Entry x:Name="usernameEntry" Style="{StaticResource entrystyle}" Placeholder="Email" >
+                                <Entry.Effects>
+                                    <effects:PlainEntry/>
+                                </Entry.Effects>
+                            </Entry>
+                        </Frame>
+                        <Label HorizontalOptions="Center" x:Name="emailErrorLabel"
+TextColor="IndianRed" FontSize="Small"/>
+                    </StackLayout>
+
+
+                    <StackLayout Grid.Row="1">
+                        <Frame  Style="{StaticResource framestyle}">
+                            <Entry Style="{StaticResource entrystyle}" Placeholder="Hasło" IsPassword="True"  x:Name="passwordEntry" >
+                                <Entry.Effects>
+                                    <effects:PlainEntry/>
+                                </Entry.Effects>
+                            </Entry>
+
+                        </Frame>
+                        <Label HorizontalOptions="Center" x:Name="passwordErrorLabel"
+TextColor="IndianRed" FontSize="Small"/>
+                    </StackLayout>
+
+
+
+
+                    <Button Grid.Row="2" Text="Zaloguj się" Style="{StaticResource buttonrej}" Clicked="Button_Clicked"></Button>
+
+                </Grid>
+            </Frame>
+        </Grid>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BaseStartingApp.AddDisasterPage"
+                      xmlns:effects="clr-namespace:BaseStartingApp.Effects"
+             Background="black">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="0.2*"></RowDefinition>
+            
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+       
+        </Grid.ColumnDefinitions>
+        <Frame  Grid.Row="0" Grid.ColumnSpan="4" HasShadow="False" Margin="15,0,15,120" VerticalOptions="FillAndExpand" CornerRadius="20" Opacity="0.9" BackgroundColor="#2e2b2c">
+            <Grid x:Name="gridlog" RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto" RowSpacing="20" Padding="0,30,0,0">
+                <Frame  Grid.Row="0" Style="{StaticResource framestyle}">
+                    <Entry  x:Name="name" Style="{StaticResource entrystyle}" Placeholder="Nazwa">
+                        <Entry.Effects>
+                            <effects:PlainEntry/>
+                        </Entry.Effects>
+                    </Entry>
+                </Frame>
+                <Frame  Grid.Row="1" Style="{StaticResource framestyle}">
+                    <Entry x:Name="description" Style="{StaticResource entrystyle}"  Placeholder="Opis">
+                        <Entry.Effects>
+                            <effects:PlainEntry/>
+                        </Entry.Effects>
+                    </Entry>
+                </Frame>
+                <Frame  Grid.Row="2" Style="{StaticResource framestyle}">
+                    <Entry x:Name="volunteers_number_needed" Style="{StaticResource entrystyle}" Placeholder="Ilość potrzebnych wolontariuszy">
+                        <Entry.Effects>
+                            <effects:PlainEntry/>
+                        </Entry.Effects>
+                    </Entry>
+                </Frame>
+                <Button Grid.Row="3" Text="Dodaj" Style="{StaticResource buttonrej}"  Clicked="Buttond_Clicked"/>
+            </Grid>
+        </Frame>
+        <ImageButton Padding="30" Grid.Row="1" BackgroundColor="Transparent" Source="map2.png"
+                  HorizontalOptions="Center"
+                  VerticalOptions="CenterAndExpand" Clicked="buttonMapa" />
+        <ImageButton Padding="30" Grid.Row="1" Grid.Column="1" BackgroundColor="Transparent" Source="calendar2.png"
+            HorizontalOptions="Center"
+            VerticalOptions="CenterAndExpand" Clicked="buttonzdarzenia" />
+
+        <ImageButton Padding="30" Grid.Row="1" Grid.Column="2" BackgroundColor="Transparent" Source="money2.png"
+            HorizontalOptions="Center"
+            VerticalOptions="CenterAndExpand" Clicked="buttonDonation"  />
+
+        <ImageButton Padding="30" Grid.Row="1" Grid.Column="3" BackgroundColor="Transparent" Source="user2.png"
+    HorizontalOptions="Center"
+    VerticalOptions="CenterAndExpand" Clicked="buttonlogin" />
+
+    </Grid>
+</ContentPage>

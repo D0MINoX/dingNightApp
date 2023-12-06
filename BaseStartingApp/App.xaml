@@ -3,6 +3,31 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="BaseStartingApp.App">
     <Application.Resources>
-
+        <Style x:Key="entrystyle" TargetType="Entry">
+            <Setter Property="Background" Value="transparent" />
+            <Setter Property="BackgroundColor" Value="Transparent"></Setter>
+        </Style>
+        <Style x:Key="framestyle" TargetType="Frame">
+            <Setter Property="Padding" Value="5" />
+            <Setter Property="CornerRadius" Value="10" ></Setter>
+            <Setter Property="IsClippedToBounds" Value="True"/>
+        </Style>
+        <Style x:Key="buttonrej" TargetType="Button">
+            <Setter Property="Padding" Value="5" />
+            <Setter Property="Background" Value="rgb(0, 204, 153)"></Setter>
+            <Setter Property="TextColor" Value="white"></Setter>
+            <Setter Property="FontAttributes" Value="Bold"></Setter>
+        
+            <Setter Property="CornerRadius" Value="10" ></Setter>
+            
+        </Style>
+        <Style x:Key="labelik" TargetType="Label">
+            <Setter Property="TextColor" Value="white"></Setter>
+            <Setter Property="FontSize" Value="20"></Setter>
+        </Style>
+        <ResourceDictionary>
+            <Color x:Key="CustomTextColor">#00cc99</Color>
+            <!-- Kolor zdefiniowany jako zasób -->
+        </ResourceDictionary>
     </Application.Resources>
 </Application>
